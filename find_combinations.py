@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def find_next_flight(bags_num, current_len, initial, lines):
-	"""Find next flight for data from find_combinations."""
+	"""Find next flight using data from find_combinations."""
 
 	time_format = '%Y-%m-%dT%H:%M:%S'
 	temp_list = []
@@ -78,10 +78,11 @@ def find_combinations():
 		if not find_next_flight(bags_num, current_len, initial, lines):
 			found_next_flight = False
 
+		# Add return value of find_next_flight to initial.
 		initial.extend(find_next_flight(bags_num, current_len, initial, lines))
 
-		# Make and work on copies to avoid doing extra loops - working
-		# on originals doesn't delete mentioned below combinations at once.
+		# Make and work on list copy to avoid doing extra loops - working
+		# on original doesn't delete mentioned below combinations at once.
 		cinitial = initial[:]
 		for item in initial:
 			# Delete all combinations that don't go any further.
@@ -89,7 +90,9 @@ def find_combinations():
 				cinitial.remove(item)
 		initial = cinitial[:]
 
-		# Move finished combinations to the final list.
+		# IS THAT STUFF BELOW REALLY NEEDED?
+
+		# Move finished combinations from initial and cinitial to the final list.
 		for item in initial:
 			if item['route'][0] == item['route'][-1]:
 				final.append(item)
@@ -106,6 +109,7 @@ def find_combinations():
 		print(f"Departure from {item['route'][0]}: {item['dep_time']}.")
 		print(f"Arrival to {item['route'][-1]}: {item['arr_time']}.")
 		print(f"Total price: {item['price']}€.\n")
+	print(len(final))
 
 	return final
 
