@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1701a62c-3fea-4b6f-b8f7-28b6d597ce1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/find_combinations.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_combinations.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,17 +28,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/find_combinations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" selection-start-column="10" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/combinations.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" selection-start-column="9" selection-end-column="9" />
+            <state relative-caret-position="405">
+              <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +71,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="243" />
-    <option name="y" value="17" />
+    <option name="x" value="341" />
+    <option name="y" value="61" />
     <option name="width" value="1350" />
     <option name="height" value="1020" />
   </component>
@@ -87,7 +82,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -99,6 +93,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,15 +205,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="297" y="19" width="1350" height="1020" extended-state="0" />
+    <frame x="341" y="61" width="1350" height="1020" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14739229" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848485" visible="true" weight="0.14739229" />
+      <window_info id="Structure" order="1" sideWeight="0.50151515" side_tool="true" weight="0.14739229" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26174498" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26174498" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -248,6 +243,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/combinations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flights.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -258,17 +260,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/combinations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/find_combinations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        <state relative-caret-position="405">
+          <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
