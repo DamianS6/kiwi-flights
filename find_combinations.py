@@ -99,8 +99,8 @@ def find_combinations():
 
 		current_len += 1
 
-	print("For given amount of bags I have found the following flight combinations\n"
-	      "(1 to 4 hours for each transfer between flights):\n")
+	print(f"I have found the following flight combinations:\n"
+	      f"({bags_num} bags, 1 to 4 hours for each transfer between flights)\n")
 	for item in final:
 		print(' -> '.join(place for place in item['route']))
 		print(f"Departure from {item['route'][0]}: {item['dep_time']}.")
