@@ -3,6 +3,41 @@ import csv
 from datetime import datetime
 
 
+def find_next_flight(bags_num, current_len, initial, lines):
+	"""Find next flight for data from find_combinations."""
+
+	time_format = '%Y-%m-%dT%H:%M:%S'
+	temp_list = []
+	for item in initial:
+		for line in lines:
+			line = line.rstrip().split(',')
+			if line[0] == 'source':
+				continue
+
+			# Set place condition (next source == last destination).
+			place_cond = bool(line[0] == item['route'][current_len - 1])
+			# Set time condition.
+			next_dep = datetime.strptime(line[2], time_format)
+			last_arr = datetime.strptime(item['arr_time'], time_format)
+			transfer = next_dep - last_arr
+			time_cond = bool(3600 <= transfer.total_seconds() <= 4 * 3600)
+			# Avoid travelling through same cities.
+			repeat_cond = not bool(line[1] in item['route'][1:-1])
+
+			if place_cond and time_cond and repeat_cond and int(line[6]) >= bags_num:
+				price = int(line[5]) + int(line[7]) * bags_num
+				new_route = []
+				for n in range(current_len):
+					new_route.append(item['route'][n])
+				new_route.append(line[1])
+				temp_list.append({'route': new_route,
+				                  'dep_time': item['dep_time'],
+				                  'arr_time': line[3],
+				                  'price': item['price'] + price})
+
+	return temp_list
+
+
 def find_combinations():
 	"""
 	Find all combinations of flights for passengers with no bags,
@@ -39,41 +74,11 @@ def find_combinations():
 	# Set flag to control if program should stop or look for the next link.
 	found_next_flight = True
 
-	time_format = '%Y-%m-%dT%H:%M:%S'
 	while found_next_flight:
-		found_next_flight = False
-		temp_list = []
+		if not find_next_flight(bags_num, current_len, initial, lines):
+			found_next_flight = False
 
-		for item in initial:
-			for line in lines:
-				line = line.rstrip().split(',')
-				if line[0] == 'source':
-					continue
-
-				# Set place condition (next source == last destination).
-				place_cond = bool(line[0] == item['route'][current_len-1])
-				# Set time condition.
-				next_dep = datetime.strptime(line[2], time_format)
-				last_arr = datetime.strptime(item['arr_time'], time_format)
-				transfer = next_dep - last_arr
-				time_cond = bool(3600 <= transfer.total_seconds() <= 4 * 3600)
-				# Avoid travelling through same cities.
-				repeat_cond = not bool(line[1] in item['route'][1:-1])
-
-				if place_cond and time_cond and repeat_cond and int(line[6]) >= bags_num:
-					# If next flight was found run the whole process once more.
-					found_next_flight = True
-					price = int(line[5]) + int(line[7]) * bags_num
-					new_route = []
-					for n in range(current_len):
-						new_route.append(item['route'][n])
-					new_route.append(line[1])
-					temp_list.append({'route': new_route,
-					                  'dep_time': item['dep_time'],
-					                  'arr_time': line[3],
-					                  'price': item['price'] + price})
-
-		initial.extend(temp_list)
+		initial.extend(find_next_flight(bags_num, current_len, initial, lines))
 
 		# Make and work on copies to avoid doing extra loops - working
 		# on originals doesn't delete mentioned below combinations at once.
@@ -84,7 +89,7 @@ def find_combinations():
 				cinitial.remove(item)
 		initial = cinitial[:]
 
-		# Move finished combinations to final list.
+		# Move finished combinations to the final list.
 		for item in initial:
 			if item['route'][0] == item['route'][-1]:
 				final.append(item)
@@ -111,4 +116,4 @@ find_combinations()
 
 # TODO: Return output for further processing.
 
-# TODO: Simplify.
+# TODO: Simplify?
